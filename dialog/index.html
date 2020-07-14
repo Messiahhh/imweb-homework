@@ -4,9 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .dialog-mask {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, .15);
+        }
+
+        .dialog-container {
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            width: 520px;
+            height: 400px;
+            border-radius: 8px;
+            box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, .12), -3px 3px 6px 0 rgba(0, 0, 0, .12);
+        }
+    </style>
 </head>
 <body>
-    
-    <script src="../index.js"></script>
+    <script src="./index.js"></script>
+    <script>
+        const modal = new Dialog({
+            title: 'akara',
+            content: '测试'
+        })
+    </script>
 </body>
 </html>
