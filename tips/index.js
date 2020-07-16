@@ -1,12 +1,12 @@
 class Tips {
     constructor({
-        cl,
+        el,
         text,
         color = '#fff',
         background = '#666',
         direction = 'top'
     }) {
-        const container = document.querySelector(`.${cl}`)
+        const container = document.querySelector(`.${el}`)
         container.classList.add('tips-container')
         const position = window.getComputedStyle(container, null).position
         if (position === 'static') {

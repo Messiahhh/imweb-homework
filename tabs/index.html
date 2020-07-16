@@ -4,8 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            margin: 100px;
+        }
+        .tabs {
+            overflow: hidden;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tabs-label-container {
+            position: relative;
+            display: flex;
+            border: 0px solid #f0f0f0;
+            border-width: 0 0 1px 0;
+            margin-bottom: 16px;
+        }
+        .tabs-label {
+            padding: 12px 0;
+            margin-right: 32px;
+            cursor: pointer;
+        }
+        .tabs-label:hover {
+            color: #40a9ff;
+        }
+        .tabs-label-active {
+            color: #1890ff;
+        }
+        
+        .tabs-content-container {
+            width: 100%;
+            display: flex;
+            transition: margin-left .3s;
+        }
+        .tabs-content {
+            width: 100%;
+            flex-shrink: 0;
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+</style>
 </head>
 <body>
-    
+    <div class='akara'>
+        <div>
+            <div>Tab 1</div>
+            <div>Tab 2</div>
+            <div>Tab 3</div>
+        </div>
+        <div>
+            <div>Content of Tab Pane 1...</div>
+            <div>Content of Tab Pane 2...</div>
+            <div>Content of Tab Pane 3...</div>
+        </div>
+    </div>
+    <script src='./index.js'></script>
+    <script>
+        const el = new Tabs('.akara')
+        // 只需要html的结构匹配即可
+    </script>
 </body>
 </html>
