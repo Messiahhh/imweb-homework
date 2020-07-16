@@ -24,19 +24,98 @@
             transform: translate(-50%, -50%);
             background: #fff;
             width: 520px;
-            height: 400px;
             border-radius: 8px;
             box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, .12), -3px 3px 6px 0 rgba(0, 0, 0, .12);
         }
+
+        .dialog-title {
+            font-size: 20px;
+            font-weight: 500;
+            padding: 20px 30px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .dialog-title span:last-child {
+            cursor: pointer;
+            color: rgba(0, 0, 0, .45);
+        }
+
+        .dialog-title span:last-child:hover {
+            color: rgba(0, 0, 0, .75);
+        }
+
+        .dialog-content {
+            padding: 30px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dialog-btns {
+            padding: 25px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btns {
+            cursor: pointer;
+            outline: none;
+            background: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-left: 10px;
+            transition: all .3s;
+        }
+
+        .btns-cancel {
+            border: 1px solid #d9d9d9;
+        }
+        .btns-cancel:hover {
+            color: #40a9ff;
+            border-color: #40a9ff;
+        }
+
+        .btns-cancel:active {
+            color: #fff;
+            border-color: #fff; 
+            background: #40a9ff;
+        }
+
+
+        .btns-confirm {
+            color: #fff;
+            border: 1px solid #1890ff;
+            background: #1890ff;
+        }
+        .btns-confirm:hover {
+            background: #40a9ff;
+            border-color: #40a9ff;
+        }
+        .btns-confirm:active {
+            background: #096dd9;
+            border-color: #096dd9;
+        }
+        
     </style>
 </head>
 <body>
-    <script src="./index.js"></script>
+    <button class='test'>点我</button>
+    <script src='./index.js'></script>
     <script>
+      
         const modal = new Dialog({
             title: 'akara',
-            content: '测试'
+            content: '测试',
+            // onConfirm: () => {
+            //     return new Promise((resolve, reject) => {
+            //         setTimeout(() => {
+            //             resolve()
+            //         }, 1000)
+            //     })
+            // }
         })
+
+        document.querySelector('.test').addEventListener('click', () => modal.confirm())
     </script>
 </body>
 </html>
