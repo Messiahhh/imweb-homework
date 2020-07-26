@@ -8,29 +8,60 @@
         body {
             margin: 100px;
         }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            color: #555;
+            text-decoration: none;
+        }
         .tabs {
             overflow: hidden;
             font-size: 14px;
             display: flex;
+        }
+
+        .tabs-column {
             flex-direction: column;
+        }
+        .tabs-column_reverse {
+            flex-direction: column-reverse;
         }
 
         .tabs-label-container {
+            --justifyContent: flex-start;
             position: relative;
             display: flex;
+            justify-content: var(--position);
             border: 0px solid #f0f0f0;
-            border-width: 0 0 1px 0;
-            margin-bottom: 16px;
+            margin: 16px 0;
         }
+        .tabs-column .tabs-label-container {
+            border-width: 0 0 1px 0;
+        }
+
+        .tabs-column_reverse .tabs-label-container {
+            border-width: 1px 0 0 0;
+        }
+
         .tabs-label {
             padding: 12px 0;
             margin-right: 32px;
             cursor: pointer;
         }
-        .tabs-label:hover {
+
+
+        .tabs-label:hover a {
             color: #40a9ff;
         }
-        .tabs-label-active {
+        .tabs-label-active a {
             color: #1890ff;
         }
         
@@ -50,21 +81,89 @@
 </head>
 <body>
     <div class='akara'>
-        <div>
-            <div>Tab 1</div>
-            <div>Tab 2</div>
-            <div>Tab 3</div>
-        </div>
+        <ul>
+            <li><a href="#">Tab 1</a></li>
+            <li><a href="#">Tab 2</a></li>
+            <li><a href="#">Tab 3</a></li>
+            <li><a href="#">Tab 4</a></li>
+            <li><a href="#">Tab 5</a></li>
+        </ul>
         <div>
             <div>Content of Tab Pane 1...</div>
             <div>Content of Tab Pane 2...</div>
             <div>Content of Tab Pane 3...</div>
+            <div>Content of Tab Pane 4...</div>
+            <div>Content of Tab Pane 5...</div>
         </div>
     </div>
+
+    <br />
+    <button class="btn-add">新建Tab</button>
+
+    <br />
+
+    <button class="btn-start">开始轮播</button>
+    <button class="btn-end">结束轮播</button>
+
+    <br />
+    <button class="btn-normal">正向轮播</button>
+    <button class="btn-reverse">反向轮播</button>
+
+    
+
+    <br />
+    <button class="btn-last">上一个</button>
+    <button class="btn-next">下一个</button>
+
+
     <script src='./index.js'></script>
     <script>
-        const el = new Tabs('.akara')
-        // 只需要html的结构匹配即可
-    </script>
+        const el = new Tabs('.akara', {
+            defaultIndex: 0,
+            direction: 'column-reverse',
+            justifyContent: 'space-between',
+            animated: true,
+            animationDuration: 1000,
+            animationDirection: 'normal',
+            keyEvent: true,
+        })
+
+        el.on('active', function (index) {
+            console.log(index);
+        })
+
+
+        document.querySelector('.btn-start').addEventListener('click', () => {
+            el.start()
+        })
+
+        document.querySelector('.btn-end').addEventListener('click', () => {
+            el.stop()
+        })
+
+        document.querySelector('.btn-normal').addEventListener('click', () => {
+            el.animationDirection = 'normal'
+        })
+
+        document.querySelector('.btn-reverse').addEventListener('click', () => {
+            el.animationDirection = 'reverse'
+        })
+
+        document.querySelector('.btn-add').addEventListener('click', () => {
+            el.add('New Tab', 'i am new tab')
+        })
+
+        document.querySelector('.btn-last').addEventListener('click', () => {
+            el.last()
+        })
+
+        document.querySelector('.btn-next').addEventListener('click', () => {
+            el.next()
+        })
+
+        
+
+      
+</script>
 </body>
 </html>

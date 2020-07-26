@@ -26,19 +26,21 @@ const element = new Tips({
 
 ##### Tabs
 
-和以上两个组件不同，使用这个组件的时候必须先写好HTML的结构。
-
 ``` html
 <div class='akara'>
-    <div>
-        <div>Tab 1</div>
-        <div>Tab 2</div>
-        <div>Tab 3</div>
-    </div>
+    <ul>
+        <li><a href="#">Tab 1</a></li>
+        <li><a href="#">Tab 2</a></li>
+        <li><a href="#">Tab 3</a></li>
+        <li><a href="#">Tab 4</a></li>
+        <li><a href="#">Tab 5</a></li>
+    </ul>
     <div>
         <div>Content of Tab Pane 1...</div>
         <div>Content of Tab Pane 2...</div>
         <div>Content of Tab Pane 3...</div>
+        <div>Content of Tab Pane 4...</div>
+        <div>Content of Tab Pane 5...</div>
     </div>
 </div>
 <script>
