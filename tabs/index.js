@@ -69,7 +69,7 @@ class Tabs extends EventEmitter {
     render() {
         this.el.innerHTML = this.template
     }
-    
+
     init(options) {
         const {
             defaultIndex,
@@ -136,9 +136,11 @@ class Tabs extends EventEmitter {
 
         if (this.keyEvent) {
             window.addEventListener('keydown', (e) => {
+                // ←方向键
                 if (e.keyCode === 37) {
                     this.last()
                 } 
+                // →方向键
                 if (e.keyCode === 39) {
                     this.next()
                 }

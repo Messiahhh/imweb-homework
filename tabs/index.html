@@ -39,7 +39,7 @@
             --justifyContent: flex-start;
             position: relative;
             display: flex;
-            justify-content: var(--position);
+            justify-content: var(--justifyContent);
             border: 0px solid #f0f0f0;
             margin: 16px 0;
         }
@@ -120,11 +120,14 @@
     <script>
         const el = new Tabs('.akara', {
             defaultIndex: 0,
+            // 调整布局
             direction: 'column-reverse',
-            justifyContent: 'space-between',
+            justifyContent: 'center',
+            // 轮播
             animated: true,
             animationDuration: 1000,
             animationDirection: 'normal',
+            // 支持左右方向键控制
             keyEvent: true,
         })
 

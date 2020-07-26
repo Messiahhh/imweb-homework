@@ -26,6 +26,8 @@ const element = new Tips({
 
 ##### Tabs
 
+
+
 ``` html
 <div class='akara'>
     <ul>
@@ -47,4 +49,5 @@ const element = new Tips({
 const el = new Tabs('.akara')
 </script>
 ```
+
 
